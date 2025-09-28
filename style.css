@@ -1,0 +1,418 @@
+:root {
+  --primary-color: #ec1f55;
+  --text-color: #333;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+  padding: 20px 20px 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Thêm căn chỉnh theo trục dọc */
+  gap: 20px; /* Tăng khoảng cách cho dễ nhìn */
+  height: 100vh; /* Đảm bảo body luôn bằng chiều cao khung nhìn để không tràn */
+  overflow: hidden; 
+  margin: 0;
+}
+
+.box-1 {
+  width: 60%; /* Chiếm 90% chiều rộng màn hình */
+  max-width: 500px; /* Giới hạn chiều rộng tối đa (ví dụ: 500px, bạn có thể điều chỉnh) */
+  min-width: 300px; /* Chiều rộng tối thiểu để không bị quá hẹp */
+  height: 98%; /* Lấp đầy phần nội dung của body (đã trừ padding) */
+  min-height: 0; /* Cho phép các phần tử con co lại để không tràn chiều cao */
+  background-color: #2C2C2C;
+  z-index: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* PLAYER (Bảng điều khiển) */
+.player {
+  position: relative;
+  width: 100%;
+  height: 98%; /* Chiều cao tự động, không cần cố định 300px */
+  display: flex;
+  flex-direction: column; /* Đảm bảo các thành phần bên trong xếp chồng lên nhau */
+  gap: 10px;
+}
+
+.player .icon-pause {
+  display: none;
+}
+
+.player.playing .icon-pause {
+  display: inline-block;
+}
+
+.player.playing .icon-play {
+  display: none;
+}
+
+.dashboard {
+  position: relative;
+  padding: 12px 12px 20px;
+  background-color: #2C2C2C;
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ebebeb;
+  border-radius: 12px;
+  gap: 10px;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+header h4 {
+  color: var(--primary-color);
+  font-size: 12px;
+}
+
+header h2 {
+  color: var(--text-color);
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: bold;
+  color: white;
+}
+
+/* CD */
+.cd {
+  margin: 8px auto;
+  max-width: 180px;
+}
+.hide {
+  display: none;
+}
+
+.cd-thumb {
+  width: 100%;
+  padding-top: 100%;
+  border-radius: 50%;
+  background-color: #333;
+  background-size: cover; /* Sử dụng cover thay vì kích thước cố định */
+  margin: auto;
+  animation: spin 20s linear infinite;
+  animation-play-state: paused;
+}
+.cd-thumb-rotate {
+  animation-play-state: running;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* CONTROL */
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 12px 0 6px 0;
+}
+
+.control .btn {
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.control .btn:not(.btn-toggle-play):hover {
+  color: var(--primary-color);
+}
+
+.control .btn.active {
+  color: var(--primary-color);
+}
+
+.control .btn-toggle-play {
+  /* Có thể dùng kích thước tương đối hoặc `clamp` cho các nút điều khiển */
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 22px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+}
+
+.progress {
+  position: absolute;
+  left: 10%;
+  width: 80%; /* Giảm kích thước progress bar so với container */
+  margin: 0 auto; /* Căn giữa progress bar */
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  cursor: pointer;
+  margin-top: 5px;
+  background: linear-gradient(var(--primary-color) 0 0) 0/var(--fill,0%) 100% no-repeat #ccc;
+}
+
+.progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  cursor: pointer; 
+  margin-top: -3px;
+}
+/* Thanh âm lượng */
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 12.5rem;
+  position: absolute;
+  left: 94%;
+  bottom: 0.5rem;
+}
+.volume-control i{
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1;
+}
+#volume {
+  -webkit-appearance: none; /* Chrome, Safari */
+  width: 50%;
+  height: 6px; 
+  background: linear-gradient(var(--primary-color) 0 0) 0/var(--fill,0%) 100% no-repeat #ccc;
+  border-radius: 3px;
+  outline: none; /* bỏ viền khi focus */
+  transform: rotate(-90deg);
+  transform-origin: center;
+  position: absolute;
+  bottom: 4.5rem;
+  left: -35px;
+}
+#volume.show{
+  display: block;
+}
+#volume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid #fff;
+  margin-right: -5px; /* căn giữa track */
+}
+#volume::-moz-range-track {
+  height: 6px;
+  background: #ccc;
+  border-radius: 3px;
+}
+/* Time */
+#current-time {
+  position: absolute;
+  bottom: 3px;          
+  left: 7.5%;           
+  transform: translateX(-50%);
+  color: white;
+  font-size: 14px;
+}
+
+/* PLAYLIST */
+.playlist {
+  flex: 1; /* Chiếm hết không gian còn lại trong .box-1 */
+  padding: 12px;
+  cursor: pointer;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  background: transparent;
+  min-height: 0; /* Đảm bảo khu vực này có thể cuộn thay vì làm tràn container */
+  z-index: 1;
+}
+.playlist::-webkit-scrollbar {
+  display: none;
+}
+
+.song {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  background-color: #3A3A3A;
+  padding: 8px 16px;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  /* Đảm bảo nội dung không bị tràn ra ngoài trên màn hình nhỏ */
+  min-width: 0;
+}
+
+.song.active {
+  background-color: var(--primary-color);
+}
+
+.song:active {
+  opacity: 0.8;
+}
+
+.song.active .option,
+.song.active .author,
+.song.active .title {
+  color: #fff;
+}
+
+.song .thumb {
+  min-width: 44px; /* Giữ kích thước cố định và ngăn nó co lại */
+  height: 44px;
+  border-radius: 10px;
+  background-size: 44px 44px;
+  margin: 0 8px;
+}
+
+.song .body {
+  flex: 1;
+  padding: 0 16px;
+  /* Thêm overflow-hidden để xử lý tiêu đề dài */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  min-width: 0; /* Cho phép flex item co lại */
+}
+
+.song .title {
+  font-size: 18px;
+  color: var(--text-color);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: bold;
+  color: white;
+}
+
+.song .author {
+  font-size: 12px;
+  color: #999;
+}
+
+.song .option {
+  padding: 16px 8px;
+  color: #999;
+  font-size: 18px;
+  min-width: 18px; /* Giữ kích thước tối thiểu để không bị co lại */
+}
+
+.information{
+  width: 100%;
+  height: 100%;
+  background-color: rgb(247, 247, 247);
+  display: flex;
+  gap: 10px;
+  flex: 1;
+   overflow: hidden;
+}
+.lyric, .singer_info{
+  flex: 1;
+}
+.lyric{
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  text-align: center;
+  padding: 30px 50px;
+  background-color: #333333;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  height: 100%;
+  min-width: 0; 
+   overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.lyric-lines .active{
+  color: var(--primary-color);
+}
+
+.lyric::-webkit-scrollbar {
+  display: none;
+}
+.singer_info{
+  background-color: #333333;
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 30px;
+}
+.singer_info h1{
+  background: linear-gradient(to left, #743ad5, #d53a9d);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 4px rgba(0,0,0,0.3);
+}
+.three-dot{
+  position: absolute;
+  width: 270px;
+  height: 190px;
+  background-color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 10px;
+  display: none;
+}
+.three-dot.show{
+  display: block;
+}
+ul{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+ul li{
+  list-style: none;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+.name-song{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.three-dot-list .name-song .song-title {
+  display: inline-block;   
+  max-width: 180px;          
+  white-space: nowrap;      
+  overflow: hidden;         
+  text-overflow: ellipsis;   
+}
+
+.three-dot-list li:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: 5px;
+}
