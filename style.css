@@ -202,6 +202,7 @@ header h2 {
 }
 #volume {
   -webkit-appearance: none; /* Chrome, Safari */
+  appearance: none; /* Standard property for compatibility */
   width: 50%;
   height: 6px; 
   background: linear-gradient(var(--primary-color) 0 0) 0/var(--fill,0%) 100% no-repeat #ccc;
@@ -423,4 +424,211 @@ ul li{
   background-color: var(--primary-color);
   color: #fff;
   border-radius: 5px;
+}
+/* --- Media Query cho màn hình Tablet và Mobile (max-width: 768px) --- */
+@media (max-width: 768px) {
+    /* Điều chỉnh body và bố cục tổng thể */
+    body {
+        /* Bỏ padding hai bên để tận dụng không gian */
+        padding: 10px;
+        /* Chuyển sang xếp chồng theo chiều dọc */
+        flex-direction: column; 
+        /* Tăng chiều cao để nội dung có thể cuộn, không bị cắt */
+        height: auto; 
+        overflow-y: auto; /* Cho phép cuộn dọc */
+        overflow-x: hidden; /* Ngăn cuộn ngang */
+        gap: 10px;
+    }
+
+    /* Điều chỉnh các Box chứa nội dung */
+    .box-1, .box-2 {
+        width: 100%; /* Chiếm toàn bộ chiều rộng */
+        /* Chiều cao tự động để ôm nội dung */
+        height: auto; 
+        min-height: 0;
+        max-width: 100%;
+        margin-bottom: 10px; /* Thêm khoảng cách giữa các box */
+    }
+    
+    /* Box-1: Phần Player, Lyrics và Info */
+    .box-1 {
+        order: 2; /* Đặt Box-1 xuống dưới, sau Playlist */
+        /* Giảm padding */
+        padding-bottom: 10px;
+        /* Đảm bảo phần tử con có thể cuộn (nếu cần) */
+        overflow: visible; 
+    }
+
+    /* Bố cục của phần Lyrics và Info */
+    .information {
+        /* Chuyển Lyrics và Singer Info sang xếp chồng */
+        flex-direction: column; 
+        gap: 10px;
+        /* Chiều cao tự động */
+        height: auto; 
+        padding: 0 10px;
+    }
+
+    .lyric, .singer_info {
+        /* Chiếm toàn bộ chiều rộng */
+        width: 100%; 
+        height: auto;
+        /* Giảm padding cho Lyric */
+        padding: 20px 30px; 
+    }
+    
+    .singer_info {
+        /* Có thể cố định chiều cao tối thiểu để đẹp hơn */
+        min-height: 100px; 
+        order: 1; /* Đưa info lên trên lyric */
+    }
+
+    /* --- Điều chỉnh phần Dashboard (Player) --- */
+    .dashboard {
+        padding: 10px;
+        /* Bỏ viền dưới vì nó không còn tách biệt với Lyric bên dưới nữa */
+        border-bottom: none; 
+    }
+
+    /* Giảm kích thước CD */
+    .cd {
+        max-width: 150px;
+    }
+    
+    /* Điều chỉnh Control */
+    .control {
+        padding: 10px 0;
+    }
+    .control .btn {
+        padding: 8px; /* Giảm padding nút */
+        font-size: 18px;
+    }
+    .control .btn-toggle-play {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+    /* Điều chỉnh thanh Progress Bar */
+    .progress {
+        left: 5%;
+        width: 90%; /* Tăng chiều rộng để dễ thao tác */
+        margin-top: 10px;
+    }
+
+    /* Ẩn thanh Volume vì nó chiếm nhiều không gian theo chiều dọc */
+    .volume-control {
+        display: none;
+    }
+    
+    /* Điều chỉnh vị trí thời gian */
+    #current-time {
+        left: 5%;
+    }
+    #duration-time {
+        left: 95%;
+    }
+    
+    /* --- Điều chỉnh phần Playlist --- */
+    .box-2 {
+        order: 1; /* Đặt Playlist lên đầu tiên trên mobile */
+    }
+    
+    .playlist-heading {
+        padding: 10px;
+    }
+
+    /* Giảm kích thước ảnh trong playlist */
+    .song .thumb {
+        min-width: 40px;
+        height: 40px;
+        background-size: 40px 40px;
+        border-radius: 8px;
+    }
+    
+    .song .title {
+        font-size: 16px;
+    }
+    
+    .song .author {
+        font-size: 11px;
+    }
+}
+@media (max-width: 480px) {
+    
+    .dashboard{
+        position: fixed;
+        z-index: 1;
+    }
+    .playlist{
+        z-index: -1;
+    }
+    header h2 {
+        font-size: 20px;
+    }
+    
+    .cd {
+        max-width: 110px;
+    }
+
+    .control {
+        justify-content: space-between;
+        padding: 5px 10px; 
+    }
+    
+    .control .btn-toggle-play {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    
+    .control .btn {
+        font-size: 16px;
+    }
+    
+    #current-time, #duration-time {
+        font-size: 12px;
+    }
+    
+    .song {
+        padding: 6px 10px;
+    }
+    
+    .lyric {
+        padding: 20px 10px;
+        font-size: 14px;
+    }
+
+    .three-dot {
+        display: none !important;
+    }
+    .box-1, .player {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .box-1 {
+        order: 1;
+        max-height: 45vh;
+        overflow: hidden; 
+        display: flex;
+        flex-direction: column; 
+    }
+
+    .playlist-title {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        flex-shrink: 0;
+    }
+
+    .playlist {
+        flex: 1;
+        overflow-y: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
 }
