@@ -10,17 +10,50 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./form.css">
     <link rel="icon" href="assets/logoMusic.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 
 <body>
+    <form action="" method="POST" class="form" id="form-1">
+        <span class="closeForm-btn" style="font-size: 24px; font-weight: bold; position: absolute; right: 3%; top: 5px; cursor: pointer;">&times;</span>
+        <h3 class="heading">Thêm bài hát</h3>
+        <div class="spacer"></div>
+
+        <div class="form-group">
+            <label for="songname" class="form-label">Tên bài hát</label>
+            <input id="songname" name="songname" type="text" placeholder="Tên ca sĩ" class="form-control">
+            <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="singer" class="form-label">Ca sĩ</label>
+            <input id="singer" name="singer" type="text" placeholder="Tên bài hát" class="form-control">
+            <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="mp3" class="form-label">Path-MP3</label>
+            <input id="mp3" name="mp3" type="file" accept=".mp3,audio/*" class="form-control">
+            <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="image" class="form-label">Ảnh bài hát</label>
+            <input id="image" name="image" type="file" accept="image/*" class="form-control">
+            <span class="form-message"></span>
+        </div>
+        <button class="save-btn">Lưu</button>
+    </form>
     <!-- Playlist -->
     <div class="box-1">
         <div class="playlist-title" style="z-index: 0; color: white; width: 100%;height: 8%; 
         background-color: var(--primary-color); border-top-left-radius: 12px; 
         border-top-right-radius: 12px; display: flex; justify-content: center; align-items: center; 
-        font-weight: bold; position: sticky;">
+        font-weight: bold; position: relative;">
+            <i id="addplaylist" class="fa-solid fa-plus" style="position: absolute; right: 5%; 
+            cursor: pointer; z-index: 100;"></i>
             <p>PLAYLIST</p>
         </div>
         <div class="playlist">
@@ -72,39 +105,39 @@
             <audio id="audio" src=""></audio>
         </div>
         <div class="information">
-           <article class="lyric">
+            <article class="lyric">
                 <div class="lyric-lines">
                 </div>
-           </article>
+            </article>
             <div class="singer_info">
                 <h1>Coming Soon</h1>
             </div>
         </div>
     </div>
-        <div class="three-dot">
-            <ul class="three-dot-list">
-                <li class="name-song">
-                    <i class="fa-solid fa-music"></i>
-                    <span class="song-title">Unkown</span>
-                </li>
-                <li class="play-now">
-                    <i class="fa-solid fa-play"></i>
-                    Phát ngay
-                </li>
-                <li class="add-favorite">
-                    <i class="fa-solid fa-plus"></i>
-                    Thêm vào danh sách thích
-                </li>
-                <li class="share">
-                    <i class="fa-solid fa-share"></i>
-                    Chia sẻ
-                </li>
-                <li class="download">
-                    <i class="fa-solid fa-download"></i>
-                    Tải xuống
-                </li>
-            </ul>
-        </div>
+    <div class="three-dot">
+        <ul class="three-dot-list">
+            <li class="name-song">
+                <i class="fa-solid fa-music"></i>
+                <span class="song-title">Unkown</span>
+            </li>
+            <li class="play-now">
+                <i class="fa-solid fa-play"></i>
+                Phát ngay
+            </li>
+            <li class="add-favorite">
+                <i class="fa-solid fa-plus"></i>
+                Thêm vào danh sách thích
+            </li>
+            <li class="share">
+                <i class="fa-solid fa-share"></i>
+                Chia sẻ
+            </li>
+            <li class="download">
+                <i class="fa-solid fa-download"></i>
+                Tải xuống
+            </li>
+        </ul>
+    </div>
     <script type="module" src="main.js"></script>
 </body>
 

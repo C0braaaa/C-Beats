@@ -21,6 +21,8 @@ const time = $('#current-time')
 const threeDotMenu = $('.three-dot')
 const nameSong = $('.song-title')
 const durationTime = $('#duration-time')
+const addPlaylist = $('#addplaylist')
+const getForm = $('.form')
 const app = {
     currentIndex: 0,
     isPlaying: false,
@@ -295,7 +297,19 @@ const app = {
                 _this.updatePlayingUI(true);
             }
         }
-        document.addEventListener('click', () => threeDotMenu.classList.remove('show'));
+        // Xu li khi click vao dau cong trong playlist
+        addPlaylist.onclick = function (e){
+            e.stopPropagation()
+            getForm.classList.add('show')
+        }
+        // Xu li khi click dau x tren form
+        $('.closeForm-btn').onclick =function (){
+            getForm.classList.remove('show')
+        }
+        document.addEventListener('click', () => {
+            threeDotMenu.classList.remove('show') 
+            getForm.classList.remove('show')
+        });
     },
     loadLyric: function () {
         const currentLyric = this.lyrics.find(lyric => lyric.name === this.currentSong.name);
