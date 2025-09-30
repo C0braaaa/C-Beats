@@ -20,6 +20,7 @@ const blockVolume = $('#block')
 const time = $('#current-time')
 const threeDotMenu = $('.three-dot')
 const nameSong = $('.song-title')
+const durationTime = $('#duration-time')
 const app = {
     currentIndex: 0,
     isPlaying: false,
@@ -121,6 +122,7 @@ const app = {
                     volumeSlider.style.background = `linear-gradient(to right, #ec1f55 0%, #ec1f55 ${percentUp}%, #ccc ${percentUp}%, #ccc 100%)`
                     break;
                 case 'ArrowDown':
+                    e.preventDefault()
                     cdAudio.volume = Math.max(cdAudio.volume - 0.1, 0)
                     volumeSlider.value = cdAudio.volume
                     const percentDown = cdAudio.volume * 100
@@ -151,13 +153,17 @@ const app = {
                     break;
             }
         }
+        
         // Tien do cua bai hat, fill thanh thời lượng bài hát va thoi gian bai hat
         cdAudio.ontimeupdate = function () {
             if (cdAudio.duration) {
                 const progressBar = (cdAudio.currentTime / cdAudio.duration) * 100
                 progress.value = progressBar
-                time.textContent = new Date(cdAudio.currentTime * 1000).toISOString().slice(15, 19)
+                time.textContent = new Date(cdAudio.currentTime * 1000).toISOString().slice(15, 19)             
                 progress.style.background = `linear-gradient(to right, #ec1f55 0%, #ec1f55 ${progressBar}%, #ccc ${progressBar}%, #ccc 100%)`
+                const minutes = Math.floor(cdAudio.duration / 60)
+                const seconds = Math.floor(cdAudio.duration % 60)
+                durationTime.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`
             }
         }
         progress.oninput = function () {

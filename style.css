@@ -191,7 +191,7 @@ header h2 {
   gap: 10px;
   width: 12.5rem;
   position: absolute;
-  left: 94%;
+  left: 95%;
   bottom: 0.5rem;
 }
 .volume-control i{
@@ -236,6 +236,14 @@ header h2 {
   position: absolute;
   bottom: 3px;          
   left: 7.5%;           
+  transform: translateX(-50%);
+  color: white;
+  font-size: 14px;
+}
+#duration-time {
+  position: absolute;
+  bottom: 3px;          
+  left: 92%;           
   transform: translateX(-50%);
   color: white;
   font-size: 14px;
