@@ -99,6 +99,10 @@ const app = {
         }
         // Xu li khi nhan cac phim tren bàn phím
         document.onkeydown = function (e) {
+            const tag = e.target.tagName.toLowerCase()
+            if (tag === 'input' || tag === 'textarea') {
+                return
+            }
             switch (e.code) {
                 case 'Space':
                     e.preventDefault();
@@ -155,13 +159,13 @@ const app = {
                     break;
             }
         }
-        
+
         // Tien do cua bai hat, fill thanh thời lượng bài hát va thoi gian bai hat
         cdAudio.ontimeupdate = function () {
             if (cdAudio.duration) {
                 const progressBar = (cdAudio.currentTime / cdAudio.duration) * 100
                 progress.value = progressBar
-                time.textContent = new Date(cdAudio.currentTime * 1000).toISOString().slice(15, 19)             
+                time.textContent = new Date(cdAudio.currentTime * 1000).toISOString().slice(15, 19)
                 progress.style.background = `linear-gradient(to right, #ec1f55 0%, #ec1f55 ${progressBar}%, #ccc ${progressBar}%, #ccc 100%)`
                 const minutes = Math.floor(cdAudio.duration / 60)
                 const seconds = Math.floor(cdAudio.duration % 60)
@@ -278,7 +282,7 @@ const app = {
                 const index = Number(songNode.dataset.index);
                 threeDotMenu.classList.toggle('show');
                 const rect = e.target.getBoundingClientRect();
-                const top = rect.top + window.scrollY ;
+                const top = rect.top + window.scrollY;
                 const left = rect.left + window.scrollX + 20;
                 threeDotMenu.style.top = `${top}px`;
                 threeDotMenu.style.left = `${left}px`;
@@ -297,18 +301,54 @@ const app = {
                 _this.updatePlayingUI(true);
             }
         }
+        // Xử lý khi click nút tải xuống trong menu 3 chấm
+        $('.download').onclick = function (e) {
+            e.stopPropagation();
+            const link = document.createElement('a');
+            link.href = cdAudio.src;
+            link.download = app.currentSong.name + '.mp3';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
         // Xu li khi click vao dau cong trong playlist
-        addPlaylist.onclick = function (e){
+        addPlaylist.onclick = function (e) {
             e.stopPropagation()
             getForm.classList.add('show')
         }
+        // Xu khi click vao nut chia se trong menu 3 cham
+        $('.share').onclick = function (e) {
+            e.stopPropagation();
+            if (navigator.share) {
+                navigator.share({
+                    title: app.currentSong.name,
+                    text: 'Nghe bài này hay lắm 🎵',
+                    url: window.location.href   
+                })
+                    .then(() => console.log('Chia sẻ thành công'))
+                    .catch(err => console.log('Hủy chia sẻ', err));
+            } else {
+                alert('Trình duyệt của bạn không hỗ trợ chia sẻ trực tiếp.');
+            }
+        };
         // Xu li khi click dau x tren form
-        $('.closeForm-btn').onclick =function (){
+        $('.closeForm-btn').onclick = function (e) {
+            e.stopPropagation()
             getForm.classList.remove('show')
         }
-        document.addEventListener('click', () => {
-            threeDotMenu.classList.remove('show') 
+        getForm.onclick = function (e) {
+            e.stopPropagation()
+        }
+        getForm.onsubmit = function (e){
+            e.preventDefault()
             getForm.classList.remove('show')
+            $('.incoming').classList.add('show')
+        }
+        // khi click bên ngoai man hinh
+        document.addEventListener('click', () => {
+            threeDotMenu.classList.remove('show')
+            getForm.classList.remove('show')
+            $('.incoming').classList.remove('show')
         });
     },
     loadLyric: function () {

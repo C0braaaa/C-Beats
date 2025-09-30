@@ -17,7 +17,8 @@
 
 <body>
     <form action="" method="POST" class="form" id="form-1">
-        <span class="closeForm-btn" style="font-size: 24px; font-weight: bold; position: absolute; right: 3%; top: 5px; cursor: pointer;">&times;</span>
+        <span class="closeForm-btn" style="font-size: 24px; font-weight: bold; position: absolute; right: 3%; 
+        top: 5px; cursor: pointer;z-index: 1111;">&times;</span>
         <h3 class="heading">Thêm bài hát</h3>
         <div class="spacer"></div>
 
@@ -42,6 +43,13 @@
         <div class="form-group">
             <label for="image" class="form-label">Ảnh bài hát</label>
             <input id="image" name="image" type="file" accept="image/*" class="form-control">
+            <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="lyric" class="form-label">Lyric</label>
+            <textarea name="lyric" rows="5" cols="40" style="font-size: 20px; padding: 10px;
+            box-shadow: 4px 4px 0 0 var(--primary-color);  border: 3px solid black; border-radius: 5px;"></textarea>
             <span class="form-message"></span>
         </div>
         <button class="save-btn">Lưu</button>
@@ -137,6 +145,9 @@
                 Tải xuống
             </li>
         </ul>
+    </div>
+    <div class="incoming">
+        <h2 class="typing">This function will be completed in the future!</h2>
     </div>
     <script type="module" src="main.js"></script>
 </body>

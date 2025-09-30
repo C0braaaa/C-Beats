@@ -1,11 +1,12 @@
 :root {
-  --primary-color: #ec1f55;
-  --text-color: #333;
+    --primary-color: #ec1f55;
+    --text-color: #333;
 }
+
 .form {
     position: absolute;
     margin: 0;
-    width: 360px;
+    width: 450px;
     min-height: 100px;
     padding: 20px 24px;
     text-align: center;
@@ -17,9 +18,11 @@
     box-shadow: 4px 4px 0px 0px var(--primary-color);
     display: none;
 }
-.form.show{
+
+.form.show {
     display: block;
 }
+
 .form .heading {
     font-size: 2rem;
     color: var(--primary-color);
@@ -82,7 +85,8 @@
 .spacer {
     margin-top: 25px;
 }
-.save-btn{
+
+.save-btn {
     cursor: pointer;
     font-size: 16px;
     border-radius: 12px;
@@ -90,4 +94,41 @@
     font-weight: bold;
     box-shadow: 4px 4px 0px 0px var(--primary-color);
     border: 3px solid black;
+}
+
+.incoming {
+    position: absolute;
+    top: 40%;
+    width: 600px;
+    height: 50px;
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    border: 3px solid black;
+    box-shadow: 4px 4px 0 0 var(--primary-color);
+    display: none;
+}
+.incoming.show{
+    display: block;
+}
+.incoming h2.typing {
+  width: 46ch;             
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 4s steps(46), blink 0.7s step-end infinite alternate;
+  background: linear-gradient(to right, var(--primary-color), blue);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes typing {
+  from { width: 0; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
 }
