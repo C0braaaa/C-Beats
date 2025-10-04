@@ -209,7 +209,7 @@ export const lyrics = [
     },
     {
         name: 'Slow Down',
-        lyric:`
+        lyric: `
             [Verse 1]
             I saw the wildflowers dying
             As we froze in the winter
@@ -547,4 +547,45 @@ export const lyrics = [
             Now I'm at a payphone
         `
     },
+    {
+        name: 'Now Or Never',
+        lyric: `
+            If I could do it, then why can't you?
+            Get up and make it work
+
+            Yo, if I could do it, then why can't you? (Why?) Huh, get up and make it work
+            Ain't no way that I'm sitting around, it's now or never, I'm picking it first (Yeah, I'm picking it first)
+            You can't tell me that I won't make it, knew that I had this gift since birth (I knew)
+            Grinding, came out the mud like Roddy, I had nobody, I came from dirt
+            Still came far cah I put in the work (Yeah, yeah)
+            Painting a picture when I write lyrics, don't call me a rapper, I'm really an artist
+            This weren't by chance or luck, I took one shot and I hit my target (One shot)
+            I'm not even yet in my prime, I'm not at a hundred yet, I'm still charging (Still charging)
+            They don't wanna see me win, but I know in the end, I'm winning regardless
+
+            Sleepless nights, I was up in the stu', up in the booth tryna make me a hit
+            Even when I was feeling low, man, I kept on going, I weren't gon' quit
+            I can't wait for the day that I make it, next in line, man, I feel like a king
+            My time will come, I just gotta be patient, keep on pushing and take these risks
+            I made raps off putting my pain on tracks, grinding hard tryna to see more plaques (Plaques)
+            I've been going harder than ever, I don't have time to sit and relax (I don't)
+            I've been putting in countless hours, I still not near where I wanna be at (Not yet)
+            This year, I'ma prove them wrong, they said that I can't, but I know that I can
+
+            If I could do it, then why can't you? Huh, get up and make it work
+            Ain't no way that I'm sitting around, it's now or never, I'm picking it first (Yeah, I'm picking it first)
+            You can't tell me that I won't make it, knew that I had this gift since birth (I knew)
+            Grinding, came out the mud like Roddy, I had nobody, I came from dirt
+            Painting a picture when I write lyrics, don't call me a rapper, I'm really an artist (I'm more than rap)
+            This weren't by chance or luck, I took one shot and I hit my target
+            I'm not even yet in my prime, I'm not at a hundred yet, I'm still charging (Still charging)
+            They don't wanna see me win, but I know in the end I'm winning regardless
+            If I could do it, then why can't you? Huh, get up and make it work
+            Ain't no way that I'm sitting around, it's now or never, I'm picking it first (I ain't sitting around)
+            You can't tell me that I won't make it, knew that I had this gift since birth (I knew)
+            Grinding, came out the mud like Roddy, I had nobody, I came from dirt
+
+            Grinding came out the mud like Roddy, I had nobody, I came from dirt
+        `
+    }
 ]

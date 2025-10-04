@@ -1,5 +1,11 @@
 export const songs = [
     {
+        name: "Now Or Never",
+        singer: "TKANDZ",
+        path: "assets/audio/nOn.jpg.mp3",
+        image: "assets/img/nOn.jpg"
+    },
+    {
         name: "Lose My Mind",
         singer: "Don Toliver feat. Doja Cat",
         path: "assets/audio/lose-my-mind-feat-doja-cat-from-f1-the-movie-official-music-video.mp3",
