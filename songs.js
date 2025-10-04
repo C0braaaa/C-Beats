@@ -2,7 +2,7 @@ export const songs = [
     {
         name: "Now Or Never",
         singer: "TKANDZ",
-        path: "assets/audio/nOn.jpg.mp3",
+        path: "assets/audio/nOn.mp3",
         image: "assets/img/nOn.jpg"
     },
     {

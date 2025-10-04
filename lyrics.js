@@ -554,13 +554,15 @@ export const lyrics = [
             Get up and make it work
 
             Yo, if I could do it, then why can't you? (Why?) Huh, get up and make it work
-            Ain't no way that I'm sitting around, it's now or never, I'm picking it first (Yeah, I'm picking it first)
+            Ain't no way that I'm sitting around, it's now or never, 
+            I'm picking it first (Yeah, I'm picking it first)
             You can't tell me that I won't make it, knew that I had this gift since birth (I knew)
             Grinding, came out the mud like Roddy, I had nobody, I came from dirt
             Still came far cah I put in the work (Yeah, yeah)
             Painting a picture when I write lyrics, don't call me a rapper, I'm really an artist
             This weren't by chance or luck, I took one shot and I hit my target (One shot)
-            I'm not even yet in my prime, I'm not at a hundred yet, I'm still charging (Still charging)
+            I'm not even yet in my prime, I'm not at a hundred yet, 
+            I'm still charging (Still charging)
             They don't wanna see me win, but I know in the end, I'm winning regardless
 
             Sleepless nights, I was up in the stu', up in the booth tryna make me a hit
@@ -573,15 +575,19 @@ export const lyrics = [
             This year, I'ma prove them wrong, they said that I can't, but I know that I can
 
             If I could do it, then why can't you? Huh, get up and make it work
-            Ain't no way that I'm sitting around, it's now or never, I'm picking it first (Yeah, I'm picking it first)
+            Ain't no way that I'm sitting around, it's now or never, 
+            I'm picking it first (Yeah, I'm picking it first)
             You can't tell me that I won't make it, knew that I had this gift since birth (I knew)
             Grinding, came out the mud like Roddy, I had nobody, I came from dirt
-            Painting a picture when I write lyrics, don't call me a rapper, I'm really an artist (I'm more than rap)
+            Painting a picture when I write lyrics, 
+            don't call me a rapper, I'm really an artist (I'm more than rap)
             This weren't by chance or luck, I took one shot and I hit my target
-            I'm not even yet in my prime, I'm not at a hundred yet, I'm still charging (Still charging)
+            I'm not even yet in my prime, I'm not at a hundred yet, 
+            I'm still charging (Still charging)
             They don't wanna see me win, but I know in the end I'm winning regardless
             If I could do it, then why can't you? Huh, get up and make it work
-            Ain't no way that I'm sitting around, it's now or never, I'm picking it first (I ain't sitting around)
+            Ain't no way that I'm sitting around, it's now or never, 
+            I'm picking it first (I ain't sitting around)
             You can't tell me that I won't make it, knew that I had this gift since birth (I knew)
             Grinding, came out the mud like Roddy, I had nobody, I came from dirt
 
